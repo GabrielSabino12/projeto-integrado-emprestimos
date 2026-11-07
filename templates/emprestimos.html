@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block conteudo %}
+<div class="card"><h2>Empréstimos em aberto</h2><table><tr><th>Nº</th><th>Usuário</th><th>Equipamento</th><th>Retirada</th><th>Devolver até</th><th></th></tr>
+{% for e in lista %}<tr><td>{{ e.id_emprestimo }}</td><td>{{ e.usuario }}</td><td>{{ e.equipamento }} ({{ e.patrimonio }})</td><td>{{ e.data_emprestimo }}</td>
+<td {% if e.data_prevista < hoje %}class="atraso"{% endif %}>{{ e.data_prevista }}</td>
+<td><form method="post" action="{{ url_for('devolver', id_emprestimo=e.id_emprestimo) }}"><button class="sec">Registrar devolução</button></form></td></tr>
+{% else %}<tr><td colspan="6">Nenhum empréstimo em aberto.</td></tr>{% endfor %}</table></div>{% endblock %}

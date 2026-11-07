@@ -1,0 +1,9 @@
+SISTEMA DE CONTROLE DE EMPRESTIMO DE EQUIPAMENTOS (Projeto Integrado - ADS)
+
+Requisitos: Python 3.10+ e Flask  ->  pip install flask
+Como executar:
+  1) python app.py          (cria o banco emprestimos.db automaticamente)
+  2) abrir http://127.0.0.1:5000  no navegador
+  3) login: admin  |  senha: admin123
+Testes automatizados:  python testes.py
+Arquivos: banco.py (banco), servicos.py (regras), app.py (telas), templates/ (HTML), testes.py

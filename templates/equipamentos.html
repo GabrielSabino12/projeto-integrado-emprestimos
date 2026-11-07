@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block conteudo %}
+<div class="card"><h2>Cadastro de equipamento</h2>
+<form method="post"><label>Nome do equipamento</label><input name="nome" placeholder="Ex.: Notebook Dell 15">
+<label>Nº de patrimônio</label><input name="patrimonio" placeholder="Ex.: PAT-0001">
+<label>Categoria</label><select name="categoria"><option>Notebook</option><option>Projetor</option><option>Cabo/Adaptador</option><option>Periférico</option></select>
+<button>Cadastrar</button></form></div>
+<div class="card"><h2>Equipamentos cadastrados</h2><table><tr><th>ID</th><th>Nome</th><th>Patrimônio</th><th>Categoria</th><th>Status</th></tr>
+{% for e in lista %}<tr><td>{{ e.id_equipamento }}</td><td>{{ e.nome }}</td><td>{{ e.patrimonio }}</td><td>{{ e.categoria }}</td><td>{{ e.status }}</td></tr>
+{% else %}<tr><td colspan="5">Nenhum equipamento cadastrado.</td></tr>{% endfor %}</table></div>{% endblock %}

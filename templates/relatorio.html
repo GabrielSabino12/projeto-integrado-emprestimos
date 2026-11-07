@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block conteudo %}
+<div class="card"><h2>Relatório de empréstimos por período</h2>
+<form method="get"><label>Data inicial</label><input type="date" name="inicio" value="{{ inicio }}"><label>Data final</label><input type="date" name="fim" value="{{ fim }}"><button>Gerar</button></form></div>
+{% if linhas is not none %}<div class="card"><table><tr><th>Nº</th><th>Usuário</th><th>Equipamento</th><th>Retirada</th><th>Prevista</th><th>Devolução</th></tr>
+{% for l in linhas %}<tr><td>{{ l.id_emprestimo }}</td><td>{{ l.usuario }}</td><td>{{ l.equipamento }}</td><td>{{ l.data_emprestimo }}</td><td>{{ l.data_prevista }}</td><td>{{ l.data_devolucao or 'Em aberto' }}</td></tr>
+{% else %}<tr><td colspan="6">Nenhum empréstimo no período.</td></tr>{% endfor %}</table><p>Total: {{ linhas|length }} empréstimo(s).</p></div>{% endif %}{% endblock %}

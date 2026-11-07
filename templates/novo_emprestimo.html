@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block conteudo %}
+<div class="card"><h2>Novo empréstimo</h2>
+<form method="post"><label>Usuário</label><select name="usuario">{% for u in usuarios %}<option value="{{ u.id_usuario }}">{{ u.nome }} ({{ u.matricula }})</option>{% endfor %}</select>
+<label>Equipamento disponível</label><select name="equipamento">{% for e in equipamentos %}<option value="{{ e.id_equipamento }}">{{ e.nome }} - {{ e.patrimonio }}</option>{% endfor %}</select>
+<label>Prazo (dias)</label><input name="dias" type="number" value="3" min="1" max="30">
+<button>Registrar empréstimo</button></form></div>{% endblock %}
